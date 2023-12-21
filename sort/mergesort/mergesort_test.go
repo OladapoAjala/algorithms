@@ -28,7 +28,7 @@ func TestMergeSort(t *testing.T) {
 			},
 			want: func(sorted sequences.Sequencer[string], err error) {
 				var i int32 = 0
-				for i < sorted.Size()-1 {
+				for i < sorted.GetSize()-1 {
 					curVal, err := sorted.GetData(i)
 					is.Nil(err)
 					nxtVal, err := sorted.GetData(i + 1)
@@ -45,7 +45,7 @@ func TestMergeSort(t *testing.T) {
 			},
 			want: func(sorted sequences.Sequencer[string], err error) {
 				var i int32 = 0
-				for i < sorted.Size()-1 {
+				for i < sorted.GetSize()-1 {
 					curVal, err := sorted.GetData(i)
 					is.Nil(err)
 					nxtVal, err := sorted.GetData(i + 1)
@@ -62,7 +62,7 @@ func TestMergeSort(t *testing.T) {
 			},
 			want: func(sorted sequences.Sequencer[string], err error) {
 				var i int32 = 0
-				for i < sorted.Size()-1 {
+				for i < sorted.GetSize()-1 {
 					curVal, err := sorted.GetData(i)
 					is.Nil(err)
 					nxtVal, err := sorted.GetData(i + 1)

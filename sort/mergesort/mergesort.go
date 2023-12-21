@@ -10,10 +10,10 @@ Paper ref.: https://www.researchgate.net/publication/312963714_Merge_sort_enhanc
 */
 
 func MergeSort[T constraints.Ordered](data sequences.Sequencer[T]) error {
-	if data.Size() <= 1 {
+	if data.GetSize() <= 1 {
 		return nil
 	}
-	return split(data, 0, data.Size()-1)
+	return split(data, 0, data.GetSize()-1)
 }
 
 func split[T constraints.Ordered](seq sequences.Sequencer[T], i, j int32) error {
