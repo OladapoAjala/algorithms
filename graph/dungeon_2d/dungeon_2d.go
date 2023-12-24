@@ -17,7 +17,8 @@ func dungeon(grid [][]string, sr, sc int) [][]int {
 	cq := queue.NewQueue[int]()
 
 	startNode := (sr * C) + sc
-	endNode := 0
+	endNode := startNode
+	pi[startNode] = -1
 	foundEnd := false
 
 	_ = rq.Enqueue(sr)
@@ -26,14 +27,6 @@ func dungeon(grid [][]string, sr, sc int) [][]int {
 		c, err := cq.Dequeue()
 		if err != nil {
 			return nil
-		}
-		if grid[r][c] == "#" {
-			continue
-		}
-
-		currentNode := (r * C) + c
-		if grid[r][c] == "s" {
-			startNode = currentNode
 		}
 
 		for i := 0; i < 4; i++ {
@@ -56,6 +49,7 @@ func dungeon(grid [][]string, sr, sc int) [][]int {
 
 			_ = rq.Enqueue(rr)
 			_ = cq.Enqueue(cc)
+			currentNode := (r * C) + c
 			pi[neighbour] = currentNode
 			if grid[rr][cc] == "e" {
 				endNode = neighbour
