@@ -6,11 +6,11 @@ import (
 )
 
 func SelectionSort[T constraints.Ordered](data sequences.Sequencer[T]) (sequences.Sequencer[T], error) {
-	if data.Size() <= 1 {
+	if data.GetSize() <= 1 {
 		return data, nil
 	}
 
-	return selectionSort[T](data, data.Size()-1)
+	return selectionSort[T](data, data.GetSize()-1)
 }
 
 func selectionSort[T constraints.Ordered](data sequences.Sequencer[T], end int32) (sequences.Sequencer[T], error) {
