@@ -1,3 +1,5 @@
+package dynamicprogramming
+
 func Fibonacci(n int, memo map[int]int) int {
 	if n <= 2 {
 		return 1
@@ -10,4 +12,3 @@ func Fibonacci(n int, memo map[int]int) int {
 	memo[n] = f
 	return f
 }
-

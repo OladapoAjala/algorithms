@@ -22,7 +22,6 @@ func Test_getLargest(t *testing.T) {
 		args args
 		want func(int32, error)
 	}{
-		// TODO: test for error case
 		{
 			name: "get largest from static array",
 			args: args{
