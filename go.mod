@@ -1,6 +1,6 @@
 module github.com/OladapoAjala/algorithms
 
-go 1.20
+go 1.21
 
 require (
 	github.com/OladapoAjala/datastructures v0.0.0-20231221235230-a826978ecccf
