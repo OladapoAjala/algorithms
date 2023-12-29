@@ -3,7 +3,7 @@ module github.com/OladapoAjala/algorithms
 go 1.21
 
 require (
-	github.com/OladapoAjala/datastructures v0.0.0-20231226230152-bda27f64553c
+	github.com/OladapoAjala/datastructures v0.0.0-20231229183319-4f196317e6e8
 	github.com/stretchr/testify v1.8.4
 	golang.org/x/exp v0.0.0-20230811145659-89c5cff77bcb
 )
