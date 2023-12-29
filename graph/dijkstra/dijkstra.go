@@ -20,8 +20,12 @@ func dijkstra[V comparable, W constraints.Ordered](g *graph.Graph[V, W], start, 
 		return nil, err
 	}
 
-	for v, err := pq.Dequeue(); err == nil; v, err = pq.Dequeue() {
+	for _, v, err := pq.Dequeue(); err == nil; _, v, err = pq.Dequeue() {
 		visited[v] = true
+		if v == end {
+			break
+		}
+
 		for e, w := range v.Edges {
 			if visited[e] {
 				continue
@@ -29,14 +33,12 @@ func dijkstra[V comparable, W constraints.Ordered](g *graph.Graph[V, W], start, 
 
 			calcDist := delta[v] + w
 			if currDist, ok := delta[e]; ok {
-				if calcDist < currDist {
-					pi[e] = v
-					delta[e] = calcDist
+				if currDist < calcDist {
+					continue
 				}
-			} else {
-				pi[e] = v
-				delta[e] = calcDist
 			}
+			pi[e] = v
+			delta[e] = calcDist
 			err := pq.Enqueue(delta[e], e)
 			if err != nil {
 				return nil, err
