@@ -16,7 +16,7 @@ func Test_packTile(t *testing.T) {
 	tests := []struct {
 		name string
 		args args
-		want func(int)
+		want func(float64)
 	}{
 		{
 			name: "simple tile packing",
@@ -24,8 +24,28 @@ func Test_packTile(t *testing.T) {
 				space: 3,
 				tiles: []int{1, 2, 1},
 			},
-			want: func(perm int) {
-				is.Equal(perm, 12)
+			want: func(perm float64) {
+				is.EqualValues(perm, 12)
+			},
+		},
+		{
+			name: "mid complex tile packing",
+			args: args{
+				space: 5,
+				tiles: []int{1, 2, 1},
+			},
+			want: func(perm float64) {
+				is.EqualValues(perm, 70)
+			},
+		},
+		{
+			name: "complex tile packing",
+			args: args{
+				space: 50,
+				tiles: []int{1, 2, 1, 4},
+			},
+			want: func(perm float64) {
+				is.EqualValues(perm, 3.536287775945517e+19)
 			},
 		},
 	}
